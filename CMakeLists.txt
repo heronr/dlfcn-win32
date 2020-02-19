@@ -17,6 +17,7 @@ if (BUILD_SHARED_LIBS)
 endif (BUILD_SHARED_LIBS)
 
 add_library(dl ${sources})
+set_target_properties(dl PROPERTIES OUTPUT_NAME $<IF:$<CONFIG:DEBUG>,dl_d,dl>)
 
 install (TARGETS dl EXPORT dlfcn-win32-targets
                     RUNTIME DESTINATION bin
